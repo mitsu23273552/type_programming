@@ -1,0 +1,45 @@
+<div class="content">
+  <div class="title_main">Type_PROGRAMMING</div>
+  <%= link_to(root_path, class:"no-underline") do %>
+    <div class="button">今すぐはじめる！</div>
+  <% end %>
+</div>
+<div class="question">
+  <div class="question_midashi">多数の問題を作成・プレイ！</div>
+  <div class="question-container"><div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% @max10_questions.each do |question| %>
+      <div class="swiper-slide"><div class="question_sample">
+        <div class="sample_title">【問題】<br /><span class="text_title_wrap"><%=question.title%></span></div>
+        <div class="sample_answer"><pre><code><span class="text_answer_wrap"><%=question.answer%></span></code></pre></div>
+      </div></div>
+      <% end %>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div></div>
+  <%= link_to(new_question_path, class:"no-underline") do %>
+    <div class="button">問題を作る</div>
+  <% end %>
+</div>
+<div class="play_game">
+  <%= link_to(root_path, class:"no-underline") do %>
+    <div class="play_button">ゲームをプレイする！</div>
+  <% end %>
+  <%= link_to(root_path, class:"no-underline") do %>
+    <div class="score">
+      YOUR HIGH SCORE：<span class="record">99999</span>
+    </div>
+  <% end %>
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper('.swiper-container', {
+      navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    }
+  });
+</script>

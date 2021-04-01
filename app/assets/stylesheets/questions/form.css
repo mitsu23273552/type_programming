@@ -1,0 +1,71 @@
+.form_question {
+  width: 80vw;
+  margin-left: 3vw;
+  padding: 25px;
+}
+
+.question_error_message {
+  font-size: 18px;
+  font-weight: bold;
+  color: #f40909;
+  margin-bottom: 8px;;
+}
+
+.question_form_text {
+  font-size: 18px;
+  margin-bottom: 1px;
+}
+
+.input_question {
+  color: #000000;
+  background-color: #ffffff;
+  border:1px solid #bbbbbb;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 85vw;
+  height: 350px;
+  box-sizing: border-box;
+  outline:0;
+  font-size: 16px;
+}
+.input_question:focus {
+  border:1px solid #000000;
+}
+
+.input_question_level {
+  color: #000000;
+  background-color: #ffffff;
+  border:1px solid #bbbbbb;
+  padding: 10px;
+  width: 40vw;
+  height: 50px;
+  box-sizing: border-box;
+  outline:0;
+  font-size: 16px;
+}
+
+.question_bottom_content {
+  width: 85vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.question_submit {
+  width: 35vw;
+  height: 50px;
+  background: #55c500;
+  border-radius: 3px;
+  border: 0px;
+  margin-top: 25px;
+  padding: 7px;
+  color:white;
+  font-size:16px;
+  font-weight: bold;
+  cursor:pointer;
+}
+.question_submit:hover { background:#39ab03; }
+
+.bottom_space {
+  height: 4vh;
+}

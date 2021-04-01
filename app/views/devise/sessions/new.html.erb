@@ -1,0 +1,29 @@
+<div class="user_info">
+  <div class="form_body_log">
+    <div class="midashi">Type_PROGRAMMINGにログイン</div>
+    <div class='user_error_message'>
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
+    </div>
+    <%= form_with  model: @user, url: user_session_path, id: 'new_user', class: 'registration-main', local: true do |f| %>
+      <div class="field">
+        <%= f.label "ユーザー名" %>
+        <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name", class: "input_form" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "input_form"  %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <%= f.check_box :remember_me %>
+        <%= f.label "保存する" %>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "ログイン", class:"user_submit" %>
+      </div>
+    <% end %>
+  </div>
+</div>

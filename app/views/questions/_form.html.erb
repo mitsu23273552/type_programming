@@ -1,0 +1,25 @@
+<%= form_with model: question, local: true do |f| %>
+  <div class="form_question">
+    <div class="question_error_message">
+      <%= render 'layouts/error_messages_question', model: f.object %>
+    </div>
+    <div class="question_form_text">【問題文】</div>
+    <%= f.text_area :title, id:"title", placeholder:"問題文を入力してください", class:"input_question" %>
+
+    <div class="question_form_text">【回答コード】</div>
+    <%= f.text_area :answer, id:"answer", placeholder:"回答コードを入力してください", class:"input_question" %>
+
+    <div class="question_form_text">【解説】</div>
+    <%= f.text_area :commentary, id:"commentary", placeholder:"コードの解説", class:"input_question" %>
+    
+    <div class="question_bottom_content">
+      <div class="question_form_text">【難易度】<br />
+        <%= f.collection_select(:question_level_id, QuestionLevel.all, :id, :name, {}, {class:"input_question_level", id:"question-level"}) %>
+      </div>
+
+      <%= f.submit "投稿する", class:"question_submit" %>
+    </div>
+    <div class="bottom_space"></div>
+  </div>
+
+<% end %>

@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        user_name: ユーザー名
+      question:
+        user: ユーザー情報
+        title: 問題文
+        answer: 回答コード
+        commentary: 解説
+        question_level_id: 難易度

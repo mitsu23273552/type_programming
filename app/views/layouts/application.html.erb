@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Type_PROGRAMMING</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/a11y-dark.min.css">
+  </head>
+
+  <body>
+    <div class="footerFixed">
+      <header class="header">
+        <%= link_to image_tag("logo.png", class:"logo_img"), root_path %>
+        <% if user_signed_in? %><%# ログインしているときは以下を表示するようにしましょう %>
+          <div class="nav_right">
+            <%= link_to(root_path, class:"nav_link_name") do %>
+              <div class='nav_name'><%= current_user.user_name %>さん</div>
+            <% end %>
+            <%= link_to(destroy_user_session_path, method: :delete, class:"nav_link_log") do %>
+              <div class='nav_log'>ログアウト</div>
+            <% end %>
+          </div>
+        <% else %><%# ログインしていないときは以下を表示するようにしましょう %>
+          <div class="nav_right">
+            <%= link_to(new_user_session_path, class:"nav_link_log") do %>
+              <div class='nav_log'>ログイン</div>
+            <% end %>
+            <%= link_to(new_user_registration_path, class:"nav_link_sign") do %>
+              <div class='nav_signup'>新規登録</div>
+            <% end %>
+          </div>
+        <% end %>
+      </header>
+      <%= yield %>
+      <footer class="footer">
+        Copyright © Type_PROGRAMMING All rights reserved.
+      </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
