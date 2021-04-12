@@ -1,0 +1,24 @@
+<div class="game_index_main" align="center">
+  <p id="PassageArea" class="countdown_text"></p>
+</div>
+
+
+<script>
+  var count;
+  // カウント開始の命令
+  window.addEventListener('DOMContentLoaded', (e) => {
+    count = 5;   // 秒数カウント用変数
+    PassageID = setInterval('showPassage()',1000);
+  });
+  // カウント処理
+  function showPassage() {
+   count--;   // カウントアップ
+   var msg = "開始まで" + count + "秒前";   // 表示文作成
+   document.getElementById("PassageArea").innerHTML = msg;   // 表示更新
+   if (count == 1){
+     clearInterval( PassageID );
+   }
+  }
+
+  window.onLoad=setTimeout("location.href='/games'",5000)
+</script>

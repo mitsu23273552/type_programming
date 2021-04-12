@@ -1,0 +1,19 @@
+<div class="game_index_main">
+  <% @games.each_with_index do |game, i| %>
+    <% rank_num = i + 1 %>
+    <div class="rank_style">
+      <div class="rank_number"><%= rank_num %><span class="rank_sub">位</span></div>
+      <div class="rank_name"><%= link_to game.user.user_name, root_path %></div>
+      <div class="rank_record"><%= game.record_1st %></div>
+    </div>
+  <% end %>
+  <div class="rank_bottom">
+    <%= link_to(count_games_path, class:"no-underline") do %>
+      <div class="rank_play_button">PLAY GAME</div>
+    <% end %>
+    <%= link_to(root_path, class:"no-underline") do %>
+      <div class="rank_back_button">TOPに戻る</div>
+    <% end %>
+  </div>
+
+</div>

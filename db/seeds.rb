@@ -1,7 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Question.create(user_id: '1', title:'Level1', answer:'aabbcc', commentary:'LEVEL1のコメント', question_level_id:'1')
+Question.create(user_id: '1', title:'Level2', answer:'aabbcc', commentary:'LEVEL2のコメント', question_level_id:'2')
+Question.create(user_id: '1', title:'Level3', answer:'aabbcc', commentary:'LEVEL3のコメント', question_level_id:'3')
+Question.create(user_id: '1', title:'Level4', answer:'aabbcc', commentary:'LEVEL4のコメント', question_level_id:'4')
+Question.create(user_id: '1', title:'Level5', answer:'aabbcc', commentary:'LEVEL5のコメント', question_level_id:'5')

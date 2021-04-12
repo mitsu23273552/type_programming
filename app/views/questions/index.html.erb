@@ -1,6 +1,6 @@
 <div class="content">
-  <div class="title_main">Type_PROGRAMMING</div>
-  <%= link_to(root_path, class:"no-underline") do %>
+  <div class="title_main"><%= link_to image_tag("logo.png", class:"title_img"), "#" %></div>
+  <%= link_to(count_games_path, class:"no-underline") do %>
     <div class="button">今すぐはじめる！</div>
   <% end %>
 </div>
@@ -23,13 +23,22 @@
   <% end %>
 </div>
 <div class="play_game">
-  <%= link_to(root_path, class:"no-underline") do %>
-    <div class="play_button">ゲームをプレイする！</div>
+  <%= link_to(count_games_path, class:"no-underline") do %>
+    <div class="play_button">PLAY GAME</div>
   <% end %>
-  <%= link_to(root_path, class:"no-underline") do %>
-    <div class="score">
-      YOUR HIGH SCORE：<span class="record">99999</span>
-    </div>
+  <% if user_signed_in? %>
+    <%= link_to(root_path, class:"no-underline") do %>
+      <% if @user_record.present? %>
+        <div class="score">
+          YOUR HIGH SCORE：<span class="record"><%= @user_record.record_1st %></span>
+        </div>
+      <% else %>
+        <div class="score">YOUR HIGH SCORE：NO RECORD</div>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= link_to(ranking_games_path, class:"no-underline") do %>
+    ランキング
   <% end %>
 </div>
 

@@ -24,15 +24,12 @@ belongs_to :user
 
 
 ## game_records テーブル
-| Column              | Type       | Options                        |
-| ------------------- | ---------- | ------------------------------ |
-| user                | references | null: false, foreign_key: true |
-| easy_record_1st     | string     |                                |
-| easy_record_2nd     | string     |                                |
-| easy_record_3rd     | string     |                                |
-| normal_record_1st   | string     |                                |
-| normal_record_2nd   | string     |                                |
-| normal_record_3rd   | string     |                                |
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+| user           | references | null: false, foreign_key: true |
+| record_1st     | string     | null: false                    |
+| record_2nd     | string     | null: false                    |
+| record_3rd     | string     | null: false                    |
 
 ### Association
 belongs_to :user

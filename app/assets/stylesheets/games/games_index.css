@@ -1,0 +1,75 @@
+
+.game_index_main{
+  min-height: calc(100vh - 115px);
+  padding-top: 80px;
+  padding-right: 25px;
+  padding-left: 25px;
+  background-color: #f3f4f9;
+}
+
+.count_text {
+  width: 18vw;
+  max-width: 220px;
+  min-width: 140px;
+  height: 40px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 40px;
+  color: #ffffff;
+  border-radius: 5px;
+  background-color: #0c87b0;
+}
+
+.answer_text {
+  width: calc(100vw - 70px);
+  min-width: 500px;
+  height: 260px;
+  max-height: 260px;
+  border-radius: 5px;
+  background-color: #2b2b2b;
+  padding: 8px;
+}
+
+.gametext_answer_wrap {
+  font-size: 18px;
+  white-space: pre-wrap;
+  display: -webkit-box;
+}
+
+.title_text {
+  width: calc(100vw - 94px);
+  min-width: 500px;
+  height: 260px;
+  max-height: 260px;
+  margin-top: 30px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  padding: 20px;
+}
+
+.gametext_title_wrap {
+  font-size: 14px;
+  white-space: pre-wrap;
+  display: -webkit-box;
+}
+
+
+
+
+.countdown_text {
+  width: 20vw;
+  max-width: 220px;
+  min-width: 140px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 40px;
+  color: #ffffff;
+  background-color: #0c87b0;
+  border-radius: 5px;
+  position: relative;
+  top: 30vh;
+}

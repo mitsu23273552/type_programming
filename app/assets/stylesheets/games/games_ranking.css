@@ -1,0 +1,78 @@
+
+.game_index_main{
+  min-height: calc(100vh - 115px);
+  padding-top: 80px;
+  padding-right: 25px;
+  padding-left: 25px;
+  background-color: #f3f4f9;
+}
+
+.rank_style {
+  width: 80vw;
+  max-width: 800px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 40px;
+  color: #000000;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+.rank_number {
+  width: 15%;
+  text-align: center;
+}
+.rank_sub {
+  font-size: 12px;
+}
+
+.rank_name {
+  width: 55%;
+}
+
+.rank_record {
+  width: 30%;
+  color: #c00000;
+  text-align: center;
+  background-color: #fff876;
+}
+
+.rank_bottom {
+  width: 80vw;
+  max-width: 800px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.rank_play_button {
+  height: 45px;
+  width: 220px;
+  border-radius: 6px;
+  margin: 20px auto;
+  text-decoration: none;
+  color: #f1f1f1;
+  background-color: #00a2ff;
+  line-height: 45px;
+  text-align: center;
+}
+.rank_play_button:hover {
+  background-color: #14c1d1;
+}
+
+.rank_back_button {
+  height: 35px;
+  width: 130px;
+  border-radius: 6px;
+  margin: 0 auto;
+  text-decoration: none;
+  color: #f1f1f1;
+  background-color: #6ce750;
+  line-height: 35px;
+  text-align: center;
+}
+.rank_back_button:hover {
+  background-color: #56d114;
+}

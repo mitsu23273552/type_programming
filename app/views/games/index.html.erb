@@ -1,0 +1,131 @@
+<div class="game_index_main" id="content1">
+  <div class="count_text" id="count"></div>
+  <div class="answer_text"><pre><code><span id="word" class="gametext_answer_wrap"></span></code></pre></div>
+  <div class="title_text"><span id="Qtitle" class="gametext_title_wrap"><span></div>
+</div>
+
+<div class="game_index_main" id ="content2">
+  <div id="scoredis"></div>
+  <div id="record1"></div>
+  <div id="record2"></div>
+  <div id="record3"></div>
+  <div id="record4"></div>
+  <div id="record5"></div>
+  <div id="recorder"></div>
+  <%= form_with model: @game, id: 'game-form', local: true do |f| %>
+    <%= f.hidden_field :dummy %>
+    <%= f.submit "記録を登録" %>
+  <% end %>
+</div>
+
+<script>
+let Qnum = 0;
+let time_count;
+let $score = 0;
+let char_num = 0;
+let word_char;
+let wordlist;
+let gametimer;
+let startTime;
+let endTime;
+let record = [];
+let bestrecord = gon.user_records[0];
+let scorelist = [];
+
+window.onLoad = gameSet();
+
+function gameSet(){
+  content2.style.display = "none";
+  wordlist = gon.answers[Qnum].replace(/\n+/g, '');
+  qlist = gon.titles[Qnum]
+  time_count = 0;
+  startTime = new Date();
+  wordDisplay();
+  gametimer = setInterval(function(){
+    count.innerHTML="Time："+time_count;
+    time_count++;
+  },1000);
+}
+
+function wordDisplay(){
+  word.innerHTML=wordlist;
+  Qtitle.innerHTML="【問題】<br />"+qlist;
+  charInsort();
+}
+
+function charInsort(){
+  word_char = wordlist.charAt(char_num);
+}
+
+function finish(){
+  score = Math.floor((1000 - record[0]) + (2000 - record[1]) + (3000 - record[2]) + (4000 - record[3]) + (5000 - record[4]));
+  if (score > bestrecord){
+    scoredis.innerHTML=score+"点<span style='color: red;'>New Record!!!";
+  }else{
+    scoredis.innerHTML=score+"点";
+  }
+  record1.innerHTML="1問目："+record[0]+"秒";
+  record2.innerHTML="2問目："+record[1]+"秒";
+  record3.innerHTML="3問目："+record[2]+"秒";
+  record4.innerHTML="4問目："+record[3]+"秒";
+  record5.innerHTML="5問目："+record[4]+"秒";
+  content1.style.display = "none";
+  content2.style.display = "block";
+  count.innerHTML="";
+  word.innerHTML="";
+  Qtitle.innerHTML="";
+  /* スコアの並び替え処理 */
+  scorelist = gon.user_records;
+  scorelist.push(score);
+  scorelist.sort(function(first, second){
+    if (first < second){
+      return 1;
+    }else if (first > second){
+      return -1;
+    }else{
+      return 0;
+    }
+  });
+}
+
+document.onkeypress = function(e) {
+  let keyStr = String.fromCharCode(e.keyCode);
+  if(keyStr == word_char){
+    word.innerHTML="<span style='color: red;'>"+wordlist.substr(0,char_num+1)+"</span>"+wordlist.substr(char_num+1,wordlist.length);
+    char_num++;
+    charInsort();
+  }
+  if(char_num == wordlist.length && Qnum < 4){
+    Qnum++;
+    char_num=0;
+    endTime = new Date()
+    record.push(Math.floor((endTime.getTime() - startTime.getTime())/100)/10);
+    clearInterval(gametimer);
+    gameSet();
+  }
+  if(char_num == wordlist.length && Qnum == 4){
+    endTime = new Date()
+    record.push(Math.floor((endTime.getTime() - startTime.getTime())/100)/10);
+    clearInterval(gametimer);
+    finish();
+  }
+};
+ 
+
+
+const rec = () => {
+  const form = document.getElementById("game-form");
+  form.addEventListener("submit", (e) => {
+    const renderDom = document.getElementById("game-form");
+    const recordObj1 = `<input value=${scorelist[0]} name='record_1st' type="hidden"> `;
+    const recordObj2 = `<input value=${scorelist[1]} name='record_2nd' type="hidden"> `;
+    const recordObj3 = `<input value=${scorelist[2]} name='record_3rd' type="hidden"> `;
+    renderDom.insertAdjacentHTML("beforeend", recordObj3);
+    renderDom.insertAdjacentHTML("beforeend", recordObj2);
+    renderDom.insertAdjacentHTML("beforeend", recordObj1);
+    document.getElementById("game-form").submit();
+  });
+};
+
+window.addEventListener("load", rec);
+</script>

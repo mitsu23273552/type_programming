@@ -2,6 +2,9 @@ class QuestionsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
   def index
     @max10_questions = Question.order("RAND()").limit(10)
+    if current_user.present?
+      @user_record = Game.find_by(user_id: current_user.id)
+    end
   end
 
   def new
