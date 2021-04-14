@@ -9,3 +9,5 @@ ja:
         answer: 回答コード
         commentary: 解説
         question_level_id: 難易度
+      game:
+        user: ユーザー情報

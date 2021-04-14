@@ -1,7 +1,6 @@
 .form_question {
   width: 80vw;
-  margin-left: 3vw;
-  padding: 25px;
+  padding: 0px 25px 0px 25px;
 }
 
 .question_error_message {
@@ -65,7 +64,3 @@
   cursor:pointer;
 }
 .question_submit:hover { background:#39ab03; }
-
-.bottom_space {
-  height: 4vh;
-}

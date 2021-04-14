@@ -1,9 +1,9 @@
-<div class="game_index_main">
+<div class="content">
   <% @games.each_with_index do |game, i| %>
     <% rank_num = i + 1 %>
     <div class="rank_style">
       <div class="rank_number"><%= rank_num %><span class="rank_sub">位</span></div>
-      <div class="rank_name"><%= link_to game.user.user_name, root_path %></div>
+      <div class="rank_name"><%= link_to game.user.user_name, user_question_path(game.user.id) %></div>
       <div class="rank_record"><%= game.record_1st %></div>
     </div>
   <% end %>

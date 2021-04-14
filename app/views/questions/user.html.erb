@@ -1,0 +1,64 @@
+<div class="content">
+  <div class="user_content">
+    <div class="user_username"><%= @user.user_name %></div>
+    <% if @game.present? %>
+      <div class="user_record">
+        <div class="user_record_head">1st RECORD：</div>
+        <div class="user_record_1st_score"><%= @game.record_1st %></div>
+      </div>
+      <div class="user_record">
+        <div class="user_record_head">2nd RECORD：</div>
+        <div class="user_record_score"><%= @game.record_2nd %></div>
+      </div>
+      <div class="user_record">
+        <div class="user_record_head">3rd RECORD：</div>
+        <div class="user_record_score"><%= @game.record_3rd %></div>
+      </div>
+    <% else %>
+      <div class="user_record">
+        <div class="user_record_head">1st RECORD：</div>
+        <div class="user_record_score">NO RECORD</div>
+      </div>
+      <div class="user_record">
+        <div class="user_record_head">2nd RECORD：</div>
+        <div class="user_record_score">NO RECORD</div>
+      </div>
+      <div class="user_record">
+        <div class="user_record_head">3rd RECORD：</div>
+        <div class="user_record_score">NO RECORD</div>
+      </div>
+    <% end %>
+    <% if @questions.blank? %>
+      <div class="user_question_midashi">投稿した問題はありません</div>
+    <% else %>
+      <div class="user_question_midashi">【投稿問題一覧】</div>
+    <% end %>
+  </div>
+
+  <div class="q-swiper_container">
+    <div class="swiper-container"><div class="swiper-wrapper">
+      <% @questions.each do |question| %>
+        <div class="swiper-slide">
+          <div class="q-swiper_content"><a href="/questions/<%= question.id %>" class="no-underline">
+            <div class="q-swiper_title"><span class="q-swiper_title_wrap">【問題】<br /><%=question.title%></span></div>
+            <div class="q-swiper_answer"><pre><code><span class="q-swiper_answer_wrap"><%=question.answer%></span></code></pre></div>
+          </a></div>
+        </div>
+      <% end %>
+    </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<!-- Initialize Swiper -->
+<script>
+  var swiper = new Swiper('.swiper-container', {
+      navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    }
+  });
+</script>

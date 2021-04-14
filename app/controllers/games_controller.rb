@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :count]
+  before_action :authenticate_user!, only: [:index, :count, :create]
 
   def index
     @question1 = Question.where(question_level_id: 1).order("RAND()").first
@@ -28,6 +28,22 @@ class GamesController < ApplicationController
   end
 
   def count
+    @error_text = []
+    error_count = 0
+    5.times do |i|
+      i += 1
+      if Question.where(question_level_id: i).empty?
+        @error_text.push("LEVEL#{i}の問題がありません")
+        error_count += 1
+      end
+    end
+    if error_count > 0
+      @max10_questions = Question.order("RAND()").limit(10)
+      if current_user.present?
+        @user_record = Game.find_by(user_id: current_user.id)
+      end
+      render template: "questions/index"
+    end
     unless Game.exists?(user_id: current_user.id)
       game_default
     end

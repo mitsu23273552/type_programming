@@ -1,14 +1,6 @@
 
-.game_index_main{
-  min-height: calc(100vh - 115px);
-  padding-top: 80px;
-  padding-right: 25px;
-  padding-left: 25px;
-  background-color: #f3f4f9;
-}
-
 .rank_style {
-  width: 80vw;
+  width: 75vw;
   max-width: 800px;
   height: 40px;
   font-size: 20px;
@@ -41,7 +33,7 @@
 }
 
 .rank_bottom {
-  width: 80vw;
+  width: 75vw;
   max-width: 800px;
   margin-top: 40px;
   text-align: center;
@@ -56,6 +48,7 @@
   color: #f1f1f1;
   background-color: #00a2ff;
   line-height: 45px;
+  font-weight: bold;
   text-align: center;
 }
 .rank_play_button:hover {
@@ -69,10 +62,10 @@
   margin: 0 auto;
   text-decoration: none;
   color: #f1f1f1;
-  background-color: #6ce750;
+  background-color: #00a2ff;
   line-height: 35px;
   text-align: center;
 }
 .rank_back_button:hover {
-  background-color: #56d114;
+  background-color: #14c1d1;
 }

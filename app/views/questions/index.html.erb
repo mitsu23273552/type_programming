@@ -1,44 +1,55 @@
-<div class="content">
+<div class="title_content">
   <div class="title_main"><%= link_to image_tag("logo.png", class:"title_img"), "#" %></div>
   <%= link_to(count_games_path, class:"no-underline") do %>
-    <div class="button">今すぐはじめる！</div>
+    <div class="index_button">今すぐはじめる！</div>
+  <% end %>
+  <% unless @error_text.length == 0 %>
+    <% @error_text.each do |error_text| %>
+      <div class="index_errortext">※<%= error_text %></div>
+    <% end %>
   <% end %>
 </div>
-<div class="question">
+
+<div class="question_content">
   <div class="question_midashi">多数の問題を作成・プレイ！</div>
-  <div class="question-container"><div class="swiper-container">
-    <div class="swiper-wrapper">
+  <div class="q-swiper_container">
+    <div class="swiper-container"><div class="swiper-wrapper">
       <% @max10_questions.each do |question| %>
-      <div class="swiper-slide"><div class="question_sample">
-        <div class="sample_title">【問題】<br /><span class="text_title_wrap"><%=question.title%></span></div>
-        <div class="sample_answer"><pre><code><span class="text_answer_wrap"><%=question.answer%></span></code></pre></div>
-      </div></div>
+        <div class="swiper-slide">
+          <div class="q-swiper_content">
+            <a href="/questions/<%= question.id %>" class="no-underline">
+              <div class="q-swiper_title"><span class="q-swiper_title_wrap">【問題】<br /><%=question.title%></span></div>
+              <div class="q-swiper_answer"><pre><code><span class="q-swiper_answer_wrap"><%=question.answer%></span></code></pre></div>
+            </a>
+          </div>
+        </div>
       <% end %>
     </div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
   </div></div>
   <%= link_to(new_question_path, class:"no-underline") do %>
-    <div class="button">問題を作る</div>
+    <div class="index_button">問題を作る</div>
   <% end %>
 </div>
+
 <div class="play_game">
   <%= link_to(count_games_path, class:"no-underline") do %>
-    <div class="play_button">PLAY GAME</div>
+    <div class="play_game_button">PLAY GAME</div>
   <% end %>
   <% if user_signed_in? %>
-    <%= link_to(root_path, class:"no-underline") do %>
+    <%= link_to(user_question_path(current_user.id), class:"no-underline") do %>
       <% if @user_record.present? %>
-        <div class="score">
-          YOUR HIGH SCORE：<span class="record"><%= @user_record.record_1st %></span>
+        <div class="index_highscore">
+          YOUR HIGH SCORE：<span class="highscore_text"><%= @user_record.record_1st %></span>
         </div>
       <% else %>
-        <div class="score">YOUR HIGH SCORE：NO RECORD</div>
+        <div class="index_highscore">YOUR HIGH SCORE：NO RECORD</div>
       <% end %>
     <% end %>
   <% end %>
   <%= link_to(ranking_games_path, class:"no-underline") do %>
-    ランキング
+    <div class="index_rank-button">ランキングを見る</div>
   <% end %>
 </div>
 

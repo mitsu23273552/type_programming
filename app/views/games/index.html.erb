@@ -1,20 +1,20 @@
-<div class="game_index_main" id="content1">
+<div class="content" id="content1">
   <div class="count_text" id="count"></div>
   <div class="answer_text"><pre><code><span id="word" class="gametext_answer_wrap"></span></code></pre></div>
   <div class="title_text"><span id="Qtitle" class="gametext_title_wrap"><span></div>
 </div>
 
-<div class="game_index_main" id ="content2">
-  <div id="scoredis"></div>
-  <div id="record1"></div>
-  <div id="record2"></div>
-  <div id="record3"></div>
-  <div id="record4"></div>
-  <div id="record5"></div>
+<div class="content" id ="content2">
+  <div class="total_score" id="scoredis"></div>
+  <div class="question_score" id="record1"></div>
+  <div class="question_score" id="record2"></div>
+  <div class="question_score" id="record3"></div>
+  <div class="question_score" id="record4"></div>
+  <div class="question_score" id="record5"></div>
   <div id="recorder"></div>
   <%= form_with model: @game, id: 'game-form', local: true do |f| %>
     <%= f.hidden_field :dummy %>
-    <%= f.submit "記録を登録" %>
+    <%= f.submit "記録を登録", class: "game_index_button" %>
   <% end %>
 </div>
 
@@ -38,13 +38,28 @@ function gameSet(){
   content2.style.display = "none";
   wordlist = gon.answers[Qnum].replace(/\n+/g, '');
   qlist = gon.titles[Qnum]
-  time_count = 0;
+
+  timer_set();
   startTime = new Date();
   wordDisplay();
-  gametimer = setInterval(function(){
-    count.innerHTML="Time："+time_count;
-    time_count++;
-  },1000);
+}
+
+function timer_set() {
+  timer_fix = 1;
+  var now = new Date();
+  nt = now.getTime();
+  timerID = setInterval('timer_output()',1000/Math.pow(10,timer_fix));
+}
+
+function timer_output() {
+  var now = new Date();
+  mt = now.getTime();
+  count.innerHTML = "Time："+count_format((mt-nt)/1000,timer_fix); //(*7)
+}
+
+function count_format(sec,fix) {
+  var ts = sec.toFixed(fix);
+	return ts;
 }
 
 function wordDisplay(){
@@ -60,15 +75,15 @@ function charInsort(){
 function finish(){
   score = Math.floor((1000 - record[0]) + (2000 - record[1]) + (3000 - record[2]) + (4000 - record[3]) + (5000 - record[4]));
   if (score > bestrecord){
-    scoredis.innerHTML=score+"点<span style='color: red;'>New Record!!!";
+    scoredis.innerHTML=score+"点<span class='new_record'>New Record";
   }else{
     scoredis.innerHTML=score+"点";
   }
-  record1.innerHTML="1問目："+record[0]+"秒";
-  record2.innerHTML="2問目："+record[1]+"秒";
-  record3.innerHTML="3問目："+record[2]+"秒";
-  record4.innerHTML="4問目："+record[3]+"秒";
-  record5.innerHTML="5問目："+record[4]+"秒";
+  record1.innerHTML="LEVEL1："+record[0]+"秒";
+  record2.innerHTML="LEVEL2："+record[1]+"秒";
+  record3.innerHTML="LEVEL3："+record[2]+"秒";
+  record4.innerHTML="LEVEL4："+record[3]+"秒";
+  record5.innerHTML="LEVEL5："+record[4]+"秒";
   content1.style.display = "none";
   content2.style.display = "block";
   count.innerHTML="";

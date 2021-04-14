@@ -31,6 +31,12 @@ RSpec.describe Question, type: :model do
         expect(@question.errors.full_messages).to include('回答コードを入力してください')
       end
 
+      it '回答コードにかなカナ漢字が入力されていると保存できないこと' do
+        @question.answer = "あア一"
+        @question.valid?
+        expect(@question.errors.full_messages).to include('回答コードは不正な値です')
+      end
+
       it '解説が入力されていないと保存できないこと' do
         @question.commentary = nil
         @question.valid?

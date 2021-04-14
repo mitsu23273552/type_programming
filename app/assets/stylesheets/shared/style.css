@@ -1,0 +1,16 @@
+.content{
+  min-height: calc(100vh - 115px);
+  padding: 80px 25px 60px 25px;
+  background-color: #f3f4f9;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.hover-underline {
+  text-decoration: none;
+}
+.hover-underline:hover{
+  text-decoration: underline;
+}

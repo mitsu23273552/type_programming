@@ -1,0 +1,33 @@
+<div class="content">
+  <div class="q-show_head">
+    <div class="q-show_username">投稿者：<%= link_to @question.user.user_name, user_question_path(@question.user_id), class: "hover-underline" %></div>
+    <div class="q-show_level"><%= @question.question_level.name %></div>
+  </div>
+  <div class="q-show_lavel">【問題文】</div>
+  <div class="q-show_title"><span class="q-show_title_wrap"><%= @question.title %></span></div>
+  <div class="q-show_lavel">【回答コード】</div>
+  <div class="q-show_answer"><pre><code><span class="q-show_answer_wrap"><%= @question.answer %></span></code></pre></div>
+  <div class="q-show_lavel">【解説】</div>
+  <div class="q-show_title"><span class="q-show_title_wrap"><%= @question.commentary %></span></div>
+  <% if user_signed_in? && current_user.id == @question.user_id %>
+    <div class="q-show_foot">
+      <div class="q-show_footinner">
+        <%= link_to(edit_question_path(@question.id), method: :get, class:"no-underline") do %>
+          <div class="q-show_ed_button">編集</div>
+        <% end %>
+        <%= link_to(question_path(@question.id), method: :delete, class:"no-underline") do %>
+          <div class="q-show_ed_button">削除</div>
+        <% end %>
+      </div>
+      <%= link_to(root_path, class:"no-underline") do %>
+        <div class="q-show_index_button">TOPページ</div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="q-show_footelse">
+      <%= link_to(root_path, class:"no-underline") do %>
+        <div class="q-show_index_button">TOPページ</div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
