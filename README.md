@@ -131,5 +131,18 @@ belongs_to :user
 #### Association
 belongs_to :user
   
-## ローカル動作方法  
-git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記述。この時、アプリケーション開発に使用した環境を併記することを忘れないこと（パッケージやRubyのバージョンなど）。
+## 開発環境  
+### バックエンド  
+Ruby v2.6.5 / Ruby on Rails v6.0.3.6  
+### フロントエンド
+HTML / CSS / JavaScript  
+### データベース
+MySQL  
+### Web・アプリケーションサーバー(本番環境)  
+Heroku  
+### ソース管理  
+GitHub / GitHubDesktop  
+### テスト  
+RSpec  
+### エディタ  
+VSCode  
