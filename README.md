@@ -59,22 +59,24 @@ PASSWORD：tech95
 ### ・問題登録機能  
 問題文、回答コード、解説文、難易度を入力すると、  
 ユーザーはタイピングゲームの問題を投稿することができる。  
-<img src="https://s27.aconvert.com/convert/p3r68-cdx67/b0qt1-042ul.gif" alt="ゲーム機能" width="500">   
+<img src="https://s27.aconvert.com/convert/p3r68-cdx67/b0qt1-042ul.gif" alt="問題登録" width="500">   
+
 ### ・問題詳細表示機能  
 問題文、回答コード、解説文、難易度の問題の詳細情報を表示できる。  
-<img src="https://i.gyazo.com/e481f57346da3f0ce7f6d11854de16a1.png" alt="ゲーム機能" width="500">   
+<img src="https://i.gyazo.com/e481f57346da3f0ce7f6d11854de16a1.png" alt="問題詳細表示" width="500">   
+
 ### ・問題編集・削除機能  
-詳細表示内に投稿者    
+問題詳細表示内に投稿ユーザーであれば、
+編集・削除ボタンが表示され問題の編集・削除ができる。
+<img src="https://i.gyazo.com/5e9772e737ae08145c52d97fc79962a4.png" alt="問題編集・削除" width="500">  
+
 ### ・ランキング機能  
-黒枠内に表示されるコードをタイピングします。  
-入力された文字は赤くなり、全て入力すると次の問題が出題されます。  
-計５問の総合タイムからスコアが算出されます。  
-<img src="https://i.gyazo.com/f0d00252ed43bed39d4226b5bb718971.png" alt="ゲーム機能" width="500">   
+タイピングスコアの上位10名のユーザーを表示。  
+<img src="https://i.gyazo.com/6043be2c2a3d62bab85c1cb74c460f9f.png" alt="ランキング" width="500">   
+
 ### ・ユーザープロフィール  
-黒枠内に表示されるコードをタイピングします。  
-入力された文字は赤くなり、全て入力すると次の問題が出題されます。  
-計５問の総合タイムからスコアが算出されます。  
-<img src="https://i.gyazo.com/f0d00252ed43bed39d4226b5bb718971.png" alt="ゲーム機能" width="500">   
+タイピングスコアのベスト3、投稿した問題一覧とユーザー名が表示できる。  
+<img src="https://i.gyazo.com/5a3c9ea7c9f6d0d3424ddf3cfad6ab4a.png" alt="ユーザープロフィール" width="500">   
 
 
   
