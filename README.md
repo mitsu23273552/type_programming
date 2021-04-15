@@ -7,7 +7,7 @@
 
 ### Association
 has_many :questions
-has_one  :record
+has_one  :game
 
 
 ## questions テーブル
@@ -23,13 +23,13 @@ has_one  :record
 belongs_to :user
 
 
-## game_records テーブル
+## game テーブル
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | user           | references | null: false, foreign_key: true |
-| record_1st     | string     | null: false                    |
-| record_2nd     | string     | null: false                    |
-| record_3rd     | string     | null: false                    |
+| record_1st     | integer    | null: false                    |
+| record_2nd     | integer    | null: false                    |
+| record_3rd     | integer    | null: false                    |
 
 ### Association
 belongs_to :user
