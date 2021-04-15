@@ -49,7 +49,17 @@ SNS認証
 ### ゲーム機能  
 黒枠内に表示されるコードをタイピングします。  
 入力された文字は赤くなり、全て入力すると次の問題が出題されます。  
-計５門の総合タイムからスコアが算出されます。  
+計５問の総合タイムからスコアが算出されます。  
+<img src="https://i.gyazo.com/f0d00252ed43bed39d4226b5bb718971.png" alt="ゲーム機能" width="500">   
+### ゲームレコード機能    
+<img src="https://i.gyazo.com/f0d00252ed43bed39d4226b5bb718971.png" alt="ゲーム機能" width="500">  
+### 問題登録機能  
+<img src="https://i.gyazo.com/f0d00252ed43bed39d4226b5bb718971.png" alt="ゲーム機能" width="500">  
+### 問題編集・削除機能  
+<img src="https://i.gyazo.com/f0d00252ed43bed39d4226b5bb718971.png" alt="ゲーム機能" width="500">  
+### ランキング機能  
+<img src="https://i.gyazo.com/f0d00252ed43bed39d4226b5bb718971.png" alt="ゲーム機能" width="500">  
+### ユーザープロフィール機能  
 <img src="https://i.gyazo.com/f0d00252ed43bed39d4226b5bb718971.png" alt="ゲーム機能" width="500">  
 
 
