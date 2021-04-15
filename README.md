@@ -32,25 +32,21 @@ PASSWORD：tech95
 洗い出した要件の中から、今後実装予定の機能がある場合は、その機能を記述。
 
 ## データベース設計  
-ER図等を添付。
-
-## ローカル動作方法  
-git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記述。この時、アプリケーション開発に使用した環境を併記することを忘れないこと（パッケージやRubyのバージョンなど）。
-
-
-## users テーブル
+### ER図  
+  
+### users テーブル
 | Column              | Type   | Options                   |
 | ------------------- | ------ | ------------------------- |
 | username            | string | null: false               |
 | email               | string | null: false, unique: true |
 | encrypted_password  | string | null: false               |
 
-### Association
+#### Association
 has_many :questions
 has_one  :game
 
 
-## questions テーブル
+### questions テーブル
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
 | user                | references | null: false, foreign_key: true |
@@ -59,11 +55,11 @@ has_one  :game
 | commentary          | text       | null: false                    |
 | question_level_id   | integer    | null, false                    |
 
-### Association
+#### Association
 belongs_to :user
 
 
-## game テーブル
+### game テーブル
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | user           | references | null: false, foreign_key: true |
@@ -71,5 +67,8 @@ belongs_to :user
 | record_2nd     | integer    | null: false                    |
 | record_3rd     | integer    | null: false                    |
 
-### Association
+#### Association
 belongs_to :user
+
+## ローカル動作方法  
+git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記述。この時、アプリケーション開発に使用した環境を併記することを忘れないこと（パッケージやRubyのバージョンなど）。
