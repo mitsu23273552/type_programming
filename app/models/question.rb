@@ -7,7 +7,9 @@ class Question < ApplicationRecord
   with_options presence: true do
     validates :title
     with_options format: { without: /\A[ぁ-んァ-ン一-龥々]+\z/ } do
-      validates :answer
+      with_options format: { without: /\A[?!]+\z/ } do
+        validates :answer
+      end
     end
     validates :commentary
     with_options numericality: { other_than: 0, message: 'を選択してください' } do

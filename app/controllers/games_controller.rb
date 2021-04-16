@@ -44,6 +44,7 @@ class GamesController < ApplicationController
       end
       render template: "questions/index"
     end
+    
     unless Game.exists?(user_id: current_user.id)
       game_default
     end
